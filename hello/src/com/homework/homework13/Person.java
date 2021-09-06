@@ -40,4 +40,13 @@ public class Person {
     public String basicInfo(){
         return "姓名："+name+"\n" + "年龄：" + age + "\n" +"性别：" + gender ;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", gender=" + gender +
+                ", age=" + age +
+                '}';
+    }
 }

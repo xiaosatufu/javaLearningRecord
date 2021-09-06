@@ -31,4 +31,11 @@ public class Student extends Person {
         study();
         System.out.println(play());
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "stu_id='" + stu_id + '\'' +
+                '}' + super.toString();
+    }
 }
