@@ -1,10 +1,28 @@
 package com.edu.houserent.view;
 
+import com.edu.houserent.domain.House;
+import com.edu.houserent.service.HouseService;
 import com.edu.houserent.utils.Utility;
 
 public class HouseView {
     private boolean loop = true;
     private char key = ' ';
+    private HouseService houseService = new HouseService(10);
+
+
+    public void listHouses(){
+        System.out.println("==========列表==========");
+        System.out.println("编号\t\t 房主\t\t电话\t\t地址\t\t月租\t\t状态");
+        House[] houses = houseService.list();
+
+        for (int i = 0; i < houses.length; i++) {
+            if(houses[i]==null) break;
+            System.out.println(houses[i]);
+        }
+
+    }
+
+
     public void mainMenu(){
         do {
             System.out.println("==========菜单==========");
@@ -30,7 +48,7 @@ public class HouseView {
                     System.out.println("修改房源");
                     break;
                 case '5' :
-                    System.out.println("房源列表");
+                    listHouses();
                     break;
                 case '6' :
                     System.out.println("退出");
@@ -84,3 +102,5 @@ public class HouseView {
 //        } while (loop);
 //    }
 //}
+
+

@@ -8,7 +8,7 @@ public class House {
     private int rent;
     private String state;
 
-    public House(int id, String phone, String name, String address, int rent, String state) {
+    public House(int id, String name,String phone, String address, int rent, String state) {
         this.id = id;
         this.phone = phone;
         this.name = name;
