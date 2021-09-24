@@ -50,13 +50,18 @@
     <a-layout-content
         :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
     >
-      Content111
+      <pre>
+      {{ebooks}}
+      </pre>
+      <pre>
+      {{ebooks2}}
+      </pre>
     </a-layout-content>
   </a-layout>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent,onMounted,ref,reactive,toRef } from 'vue';
 import axios from 'axios'
 // import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
@@ -67,9 +72,21 @@ export default defineComponent({
   },
   setup(){
     console.log('setup')
-    axios.get('http://localhost:8880/ebook/list?name=Spring').then(res=>{
-      console.log(res)
+    const ebooks = ref()
+    const ebooks1 = reactive({books:[]})
+    onMounted(()=>{
+      console.log('onMounted')
+      axios.get('http://localhost:8880/ebook/list?name=Spring').then(res=>{
+        console.log(res)
+        const data = res.data
+        ebooks.value = data.content
+        ebooks1.books = data.content
+      })
     })
+    return {
+      ebooks,
+      ebooks2:toRef(ebooks1,"books")
+    }
   }
 });
 </script>
