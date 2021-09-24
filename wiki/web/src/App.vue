@@ -9,14 +9,14 @@
 // import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
 import { defineComponent, ref } from 'vue';
 
-import theHeader from '@/components/the-header'
-import theFooter from '@/components/the-footer'
+import TheHeader from '@/components/the-header'
+import TheFooter from '@/components/the-footer'
 
 export default defineComponent({
   name:'app',
   components: {
-    theHeader,
-    theFooter
+    TheHeader,
+    TheFooter
     // UserOutlined,
     // LaptopOutlined,
     // NotificationOutlined,
